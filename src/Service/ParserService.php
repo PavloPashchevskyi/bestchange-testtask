@@ -7,7 +7,9 @@ use Exception;
 
 class ParserService
 {
-    /** @const array */
+    /**
+     * @const array
+     */
     private const NEEDED_CSV_COLUMNS = [
         'sending_currency_id' => 0,
         'receiving_currency_id' => 1,
@@ -15,6 +17,11 @@ class ParserService
         'receiving_rate' => 4,
     ];
 
+    /**
+     * @param string $fileToParse
+     * @return array
+     * @throws Exception
+     */
     public function parse(string $fileToParse): array
     {
         $handle = fopen($fileToParse, 'rt');

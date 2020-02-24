@@ -10,12 +10,20 @@ use Exception;
 
 class GrabberService
 {
-    /** @var ContainerInterface */
+    /**
+     * @var ContainerInterface
+     */
     private $container;
 
-    /** @var HttpClient */
+    /**
+     * @var HttpClient
+     */
     private $httpClient;
 
+    /**
+     * GrabberService constructor.
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
@@ -28,6 +36,7 @@ class GrabberService
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @throws Exception
      */
     public function putContent(): string
     {

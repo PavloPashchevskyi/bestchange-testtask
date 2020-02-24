@@ -11,6 +11,11 @@ use Exception;
 
 class DummyUserProvider implements UserProviderInterface
 {
+    /**
+     * @param string $username
+     * @return DummyUser|UserInterface
+     * @throws Exception
+     */
     public function loadUserByUsername(string $username)
     {
         if (!empty($username)) {
@@ -20,6 +25,11 @@ class DummyUserProvider implements UserProviderInterface
         throw new Exception('TODO: fill in loadUserByUsername() inside '.__FILE__);
     }
 
+    /**
+     * @param UserInterface $user
+     * @return UserInterface|void
+     * @throws Exception
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$user instanceof DummyUser) {

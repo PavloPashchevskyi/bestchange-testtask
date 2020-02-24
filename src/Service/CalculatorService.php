@@ -5,6 +5,10 @@ namespace App\Service;
 
 class CalculatorService
 {
+    /**
+     * @param array $data
+     * @return array
+     */
     public function calculateProfitableRate(array $data): array
     {
         uasort($data, function (array $a, array $b) {
@@ -16,6 +20,12 @@ class CalculatorService
         return $data[$key];
     }
 
+    /**
+     * @param array $data
+     * @param int $sendingCurrencyId
+     * @param int $receivingCurrencyId
+     * @return array
+     */
     public function getByCurrencies(array $data, int $sendingCurrencyId, int $receivingCurrencyId): array
     {
         return array_filter($data, function (array $item) use ($sendingCurrencyId, $receivingCurrencyId) {
